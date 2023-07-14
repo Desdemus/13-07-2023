@@ -1,13 +1,32 @@
-import styles from "../styles/Home.module.scss";
-function App() {
-  return (
-    <div className="Home">
-      { }
+import { useRouter } from "next/router";
 
-      <p>HomePage</p>
-      <h2>Homepage</h2>
-    </div>
+export default function (props) {
+  const router = useRouter();
+
+  const onHandleClick = (id) => router.push(`/${id}`);
+
+  return (
+    <>
+      {props.data.products.map((product) => (
+        <>
+          <h3 onClick={() => onHandleClick(product.id)}>
+            {product.title} - $ {product.price} - {product.stock}
+          </h3>
+          <hr />
+          <br />
+        </>
+      ))}
+    </>
   );
 }
 
-export default App;
+export async function getServerSideProps() {
+  const res = await fetch("https://dummyjson.com/products");
+  const data = res.status === 200 ? await res.json() : {};
+
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
