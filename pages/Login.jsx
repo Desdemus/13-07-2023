@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "./mocks/auth";
+import { auth } from "../mocks/auth.js";
 import { useRouter } from 'next/router';
 
 const Login = () => {
