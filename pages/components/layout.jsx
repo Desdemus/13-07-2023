@@ -28,6 +28,7 @@ const DefaultLayout = ({ children }) => {
             name: "Dashboard",
             value: "/Dashboard",
         },
+
     ];
 
     return (
@@ -43,6 +44,7 @@ const DefaultLayout = ({ children }) => {
             </div>
             <div className={styles.content}>{children}</div>
             <div className={styles.footer}>
+                <button>xxxx </button>
             </div>
         </div>
     );
