@@ -8,13 +8,13 @@ export default function (props) {
   return (
     <>
       {props.data.products.map((product) => (
-        <>
+        <div key={product.id}>
           <h3 onClick={() => onHandleClick(product.id)}>
             {product.title} - $ {product.price} - {product.stock}
           </h3>
           <hr />
           <br />
-        </>
+        </div>
       ))}
     </>
   );
